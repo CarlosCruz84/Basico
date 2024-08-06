@@ -14,41 +14,35 @@ const destino = " Salvador";
 
 console.log(" \n Destinos possíveis:");
 console.log(listaDedestinos);
+//variavel const. essa é fixa.
+const podeComprar = idadeComprador >= 18 || estaAcompanhada == true
 
-if (idadeComprador >= 18 || estaAcompanhada == true ) {
-    console.log("Boa Viagem !!");
-    listaDedestinos.splice(2, 1); // Remove intem da lista
-    temPassagemComprada = true;
 
-} else {
-    console.log("Não é maior de Idade e não posso vender");
-    temPassagemComprada = false;
+//variável let. essa varia de acordo com a lógica
+let contador = 0;
+let destinoExiste = false; 
+
+//é utilizado para execultar repetidamente um bloco de codigo. " loop"
+while (contador<3){
+    if(listaDedestinos[contador] == destino){
+        destinoExiste = true;
+        break;
+    }
+    
+    contador += 1;
 }
 
-else if (estaAcompanhada == true) 
-    console.log("comprador está acompanhado");
-    listaDedestinos.splice(1, 1); // Remove intem da lista
+console.log("Destino existe:", destinoExiste);
 
-// // } else {
-// //     console.log("Não é maior de Idade e não posso vender");
-// //     temPassagemComprada = false;
-// }
+if(podeComprar && destinoExiste){
+    console.log("Boa Viagem !");
+}else{
+    console.log("Compra não efetuada!");
+}   
+// Outra forma de fazer o loop, é usando o for.
+for(let cont = 0; cont < 3; cont++){
 
-
-// console.log(listaDedestinos);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-listaDedestinos.push(`Sergipe`) // dessa forma eu consigo adcionar um item na lista
+    if( listaDedestinos[contador]==destino){
+        destinoExiste = true;
+    }
+}
